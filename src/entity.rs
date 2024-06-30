@@ -59,6 +59,7 @@ pub fn create_sky_entity() -> Result<Entity, JsValue> {
 }
 
 
+#[derive(Clone)]
 pub struct Entity(pub Element);
 
 impl Entity {
@@ -67,7 +68,7 @@ impl Entity {
 		self.0.set_attribute(component.component_name(), component.component_value().as_ref())?;
 		Ok(self)
 	}
-	pub fn append_child(&self, entity: &Entity) -> Result<&Self, JsValue> {
+	pub fn append_child(self, entity: Entity) -> Result<Self, JsValue> {
 		self.0.append_child(&entity.element())?;
 		Ok(self)
 	}
