@@ -151,6 +151,7 @@ impl ComponentValue for Scale {
 	}
 }
 
+#[derive(Copy, Clone, Default)]
 pub struct Position(pub f32, pub f32, pub f32);
 
 impl ComponentValue for Position {
