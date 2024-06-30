@@ -10,6 +10,12 @@ pub fn create_entity() -> Result<Entity, JsValue> {
 	Ok(entity)
 }
 
+pub fn create_camera_entity() -> Result<Entity, JsValue> {
+	let element = document().create_element("a-camera")?;
+	let entity = Entity(element);
+	Ok(entity)
+}
+
 pub fn create_light_entity() -> Result<Entity, JsValue> {
 	let element = document().create_element("a-light")?;
 	let entity = Entity(element);
