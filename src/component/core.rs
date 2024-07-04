@@ -11,7 +11,7 @@ pub trait ComponentValue {
 #[wasm_bindgen(js_namespace = AFRAME)]
 extern "C" {
 	#[wasm_bindgen(js_name = registerComponent)]
-	pub fn register_component(name: &str, registration: &js_sys::Map);
+	pub fn register_component(name: &str, registration: &js_sys::Object);
 }
 
 #[wasm_bindgen]
