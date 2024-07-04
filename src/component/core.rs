@@ -1,4 +1,5 @@
 use wasm_bindgen::closure::Closure;
+use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
 use web_sys::{Element, js_sys};
 
@@ -18,10 +19,15 @@ extern "C" {
 	pub type Component;
 
 	#[wasm_bindgen(method, getter, structural)]
+	pub fn data(this: &Component) -> JsValue;
+
+	#[wasm_bindgen(method, getter, structural)]
 	pub fn el(this: &Component) -> Element;
 }
 
-#[wasm_bindgen(inline_js = "export function component_registration(f) { return  { init: function () { f(this); } }; }")]
+#[wasm_bindgen(
+	inline_js = "export function component_registration(f) { return  { init: function () { f(this); } }; }"
+)]
 extern "C" {
 	pub fn component_registration(closure: &Closure<dyn Fn(Component)>) -> js_sys::Map;
 }
