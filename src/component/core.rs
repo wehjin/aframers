@@ -33,7 +33,7 @@ extern "C" {
 }
 
 #[wasm_bindgen(
-	inline_js = "export function component_registration(m, f) { return  { schema: m, init: function () { f(this); } }; }"
+	inline_js = "export function component_registration_with_schema(m, f) { return  { schema: m, init: function () { f(this); } }; }"
 )]
 extern "C" {
 	pub fn component_registration_with_schema(schema: js_sys::Map, closure: &Closure<dyn Fn(Component)>) -> js_sys::Map;
