@@ -4,9 +4,10 @@ use web_sys::HtmlScriptElement;
 
 use crate::browser::document;
 
+pub mod af_sys;
 pub mod browser;
-pub mod component;
-pub mod entity;
+pub mod components;
+pub mod entities;
 pub mod scene;
 const SCRIPT_URL: &str = "https://aframe.io/releases/1.6.0/aframe.min.js";
 
