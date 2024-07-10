@@ -62,6 +62,11 @@ pub struct Entity(AEntity);
 
 impl Entity {
 	pub fn a_entity(&self) -> &AEntity { &self.0 }
+	pub fn id(&self) -> String { self.0.id() }
+	pub fn set_id(self, value: String) -> Result<Self, JsValue> {
+		self.0.set_id(&value);
+		Ok(self)
+	}
 	pub fn set_component(self, component: impl ComponentValue) -> Result<Self, JsValue> {
 		self.0.set_attribute(component.component_name(), component.component_value().as_ref())?;
 		Ok(self)
