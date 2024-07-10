@@ -15,14 +15,14 @@ extern "C" {
 	pub fn a_scene(this: &AEntity) -> AScene;
 }
 
-pub fn a_entity_create(tag: impl AsRef<str>) -> Result<AEntity, JsValue> {
-	document()
-		.create_element(tag.as_ref())
-		.map(|element| element.unchecked_into())
-}
-
 impl From<&str> for AEntity {
 	fn from(value: &str) -> Self {
 		a_entity_create(value).unwrap()
 	}
+}
+
+pub fn a_entity_create(tag: impl AsRef<str>) -> Result<AEntity, JsValue> {
+	document()
+		.create_element(tag.as_ref())
+		.map(|element| element.unchecked_into())
 }
