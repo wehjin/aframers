@@ -164,7 +164,7 @@ impl ComponentValue for Position {
 
 
 pub enum Color {
-	Web(&'static str)
+	Web(String)
 }
 
 impl ComponentValue for Color {
@@ -172,7 +172,7 @@ impl ComponentValue for Color {
 
 	fn component_value(&self) -> impl AsRef<str> {
 		match self {
-			&Color::Web(s) => s
+			Color::Web(s) => s
 		}
 	}
 }
