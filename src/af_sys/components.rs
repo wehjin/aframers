@@ -1,9 +1,10 @@
 use wasm_bindgen::closure::Closure;
-use wasm_bindgen::JsValue;
+use wasm_bindgen::{JsCast, JsValue};
 use wasm_bindgen::prelude::wasm_bindgen;
 use web_sys::js_sys;
 
 use crate::af_sys::entities::AEntity;
+use crate::af_sys::systems::ASystem;
 
 #[wasm_bindgen(js_namespace = AFRAME)]
 extern "C" {
@@ -23,6 +24,14 @@ extern "C" {
 
 	#[wasm_bindgen(method, getter)]
 	pub fn id(this: &AComponent) -> String;
+}
+
+impl AComponent {
+	pub fn get_system(this: &AComponent, name: impl AsRef<str>) -> ASystem {
+		let systems = this.a_entity().a_scene().systems();
+		let system = js_sys::Reflect::get(&systems, &name.as_ref().into()).expect("get system");
+		system.unchecked_into()
+	}
 }
 
 #[wasm_bindgen(
