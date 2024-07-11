@@ -17,11 +17,20 @@ extern "C" {
 	#[wasm_bindgen(method, getter, js_name = sceneEl)]
 	pub fn a_scene(this: &AEntity) -> AScene;
 
-	#[wasm_bindgen(method, js_name = emit)]
-	pub fn emit_event(this: &AEntity, name: &str);
-
 	#[wasm_bindgen(method, getter)]
 	pub fn components(this: &AEntity) -> Object;
+
+	#[wasm_bindgen(method, js_name = addState)]
+	pub fn add_state(this: &AEntity, name: &str);
+
+	#[wasm_bindgen(method, js_name = removeState)]
+	pub fn remove_state(this: &AEntity, name: &str);
+
+	#[wasm_bindgen(method, js_name = is)]
+	pub fn is_state(this: &AEntity, name: &str) -> bool;
+
+	#[wasm_bindgen(method, js_name = emit)]
+	pub fn emit_event(this: &AEntity, name: &str);
 }
 
 impl From<&str> for AEntity {
