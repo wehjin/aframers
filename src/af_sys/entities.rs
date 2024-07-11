@@ -1,6 +1,7 @@
 use wasm_bindgen::{JsCast, JsValue};
 use wasm_bindgen::prelude::wasm_bindgen;
 use web_sys::{Element, HtmlElement, Node};
+use web_sys::js_sys::Object;
 
 use crate::af_sys::scenes::AScene;
 use crate::browser::document;
@@ -16,6 +17,9 @@ extern "C" {
 
 	#[wasm_bindgen(method, js_name = emit)]
 	pub fn emit_event(this: &AEntity, name: &str);
+
+	#[wasm_bindgen(method, getter)]
+	pub fn components(this: &AEntity) -> Object;
 }
 
 impl From<&str> for AEntity {
