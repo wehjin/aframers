@@ -27,8 +27,8 @@ extern "C" {
 }
 
 impl AComponent {
-	pub fn get_system(this: &AComponent, name: impl AsRef<str>) -> ASystem {
-		let systems = this.a_entity().a_scene().systems();
+	pub fn get_system(&self, name: impl AsRef<str>) -> ASystem {
+		let systems = self.a_entity().a_scene().systems();
 		let system = js_sys::Reflect::get(&systems, &name.as_ref().into()).expect("get system");
 		system.unchecked_into()
 	}
