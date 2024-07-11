@@ -1,8 +1,10 @@
 use wasm_bindgen::{JsCast, JsValue};
 use wasm_bindgen::prelude::wasm_bindgen;
 use web_sys::{Element, HtmlElement, Node};
+use web_sys::js_sys;
 use web_sys::js_sys::Object;
 
+use crate::af_sys::components::AComponent;
 use crate::af_sys::scenes::AScene;
 use crate::browser::document;
 
@@ -28,6 +30,13 @@ impl From<&str> for AEntity {
 	}
 }
 
+impl AEntity {
+	pub fn get_component(&self, name: impl AsRef<str>) -> AComponent {
+		let components = self.components();
+		let component = js_sys::Reflect::get(&components, &name.as_ref().into()).expect("get component");
+		component.unchecked_into()
+	}
+}
 pub fn a_entity_create(tag: impl AsRef<str>) -> Result<AEntity, JsValue> {
 	document()
 		.create_element(tag.as_ref())
