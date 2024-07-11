@@ -14,6 +14,7 @@ extern "C" {
 
 #[wasm_bindgen]
 extern "C" {
+	#[derive(Clone)]
 	pub type AComponent;
 
 	#[wasm_bindgen(method, getter)]
