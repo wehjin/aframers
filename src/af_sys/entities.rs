@@ -13,6 +13,9 @@ extern "C" {
 
 	#[wasm_bindgen(method, getter, js_name = sceneEl)]
 	pub fn a_scene(this: &AEntity) -> AScene;
+
+	#[wasm_bindgen(method, js_name = emit)]
+	pub fn emit_event(this: &AEntity, name: &str);
 }
 
 impl From<&str> for AEntity {
