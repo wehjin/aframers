@@ -1,5 +1,7 @@
 use core::ComponentValue;
 
+use crate::components::core::AsPropertyValue;
+
 pub mod core;
 
 pub struct Light {
@@ -154,14 +156,19 @@ impl ComponentValue for Scale {
 #[derive(Copy, Clone, Default)]
 pub struct Position(pub f32, pub f32, pub f32);
 
-impl ComponentValue for Position {
-	fn component_name(&self) -> &str { "position" }
-
-	fn component_value(&self) -> impl AsRef<str> {
+impl AsPropertyValue<String> for Position {
+	fn as_property_value(&self) -> String {
 		format!("{} {} {}", self.0, self.1, self.2)
 	}
 }
 
+impl ComponentValue for Position {
+	fn component_name(&self) -> &str { "position" }
+
+	fn component_value(&self) -> impl AsRef<str> {
+		self.as_property_value()
+	}
+}
 
 pub enum Color {
 	Web(String)
