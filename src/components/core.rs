@@ -5,11 +5,17 @@ pub trait ComponentValue {
 	fn component_value(&self) -> impl AsRef<str>;
 }
 
-pub trait AsPropertyValue<T: AsRef<str>> {
-	fn as_property_value(&self) -> T;
+pub trait ToPropertyValue {
+	fn to_property_value(&self) -> String;
 }
-impl<T: AsRef<str>> AsPropertyValue<T> for Box<dyn AsPropertyValue<T>> {
-	fn as_property_value(&self) -> T {
-		self.deref().as_property_value()
+impl ToPropertyValue for Box<dyn ToPropertyValue> {
+	fn to_property_value(&self) -> String {
+		self.deref().to_property_value()
 	}
 }
+impl ToPropertyValue for String {
+	fn to_property_value(&self) -> String {
+		self.clone()
+	}
+}
+

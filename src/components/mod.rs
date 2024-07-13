@@ -1,6 +1,6 @@
 use core::ComponentValue;
 
-use crate::components::core::AsPropertyValue;
+use crate::components::core::ToPropertyValue;
 
 pub mod core;
 
@@ -156,8 +156,8 @@ impl ComponentValue for Scale {
 #[derive(Copy, Clone, Default)]
 pub struct Position(pub f32, pub f32, pub f32);
 
-impl AsPropertyValue<String> for Position {
-	fn as_property_value(&self) -> String {
+impl ToPropertyValue for Position {
+	fn to_property_value(&self) -> String {
 		format!("{} {} {}", self.0, self.1, self.2)
 	}
 }
@@ -166,7 +166,7 @@ impl ComponentValue for Position {
 	fn component_name(&self) -> &str { "position" }
 
 	fn component_value(&self) -> impl AsRef<str> {
-		self.as_property_value()
+		self.to_property_value()
 	}
 }
 
