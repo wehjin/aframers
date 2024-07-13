@@ -18,4 +18,15 @@ impl ToPropertyValue for String {
 		self.clone()
 	}
 }
+impl ToPropertyValue for bool {
+	fn to_property_value(&self) -> String {
+		format!("{}", self)
+	}
+}
+impl ToPropertyValue for u32 {
+	fn to_property_value(&self) -> String {
+		format!("{}", self)
+	}
+}
+
 
