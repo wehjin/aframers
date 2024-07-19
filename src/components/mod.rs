@@ -4,6 +4,7 @@ use crate::components::core::ToPropertyValue;
 
 pub mod core;
 
+#[derive(Debug, Clone)]
 pub struct Light {
 	pub(crate) color: Color,
 	pub(crate) intensity: f32,
@@ -17,6 +18,7 @@ impl ComponentValue for Light {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct Wireframe(pub bool);
 
 impl ComponentValue for Wireframe {
@@ -31,6 +33,7 @@ impl ComponentValue for Wireframe {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct RadiusTop(pub f32);
 
 impl ComponentValue for RadiusTop {
@@ -41,6 +44,7 @@ impl ComponentValue for RadiusTop {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct RadiusBottom(pub f32);
 
 impl ComponentValue for RadiusBottom {
@@ -51,6 +55,7 @@ impl ComponentValue for RadiusBottom {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct SegmentsRadial(pub u32);
 
 impl ComponentValue for SegmentsRadial {
@@ -61,6 +66,7 @@ impl ComponentValue for SegmentsRadial {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct SegmentsHeight(pub u32);
 
 impl ComponentValue for SegmentsHeight {
@@ -71,6 +77,7 @@ impl ComponentValue for SegmentsHeight {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct ThetaLength(pub f32);
 
 impl ComponentValue for ThetaLength {
@@ -81,6 +88,7 @@ impl ComponentValue for ThetaLength {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct ThetaStart(pub f32);
 
 impl ComponentValue for ThetaStart {
@@ -91,6 +99,7 @@ impl ComponentValue for ThetaStart {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct Width(pub f32);
 
 impl ComponentValue for Width {
@@ -101,6 +110,7 @@ impl ComponentValue for Width {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct Depth(pub f32);
 
 impl ComponentValue for Depth {
@@ -112,6 +122,7 @@ impl ComponentValue for Depth {
 }
 
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct Height(pub f32);
 
 impl ComponentValue for Height {
@@ -123,6 +134,7 @@ impl ComponentValue for Height {
 }
 
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct Radius(pub f32);
 
 impl ComponentValue for Radius {
@@ -133,6 +145,7 @@ impl ComponentValue for Radius {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct Rotation(pub f32, pub f32, pub f32);
 
 impl ComponentValue for Rotation {
@@ -143,6 +156,7 @@ impl ComponentValue for Rotation {
 	}
 }
 
+#[derive(Debug, Copy, Clone, Default)]
 pub struct Scale(pub f32, pub f32, pub f32);
 
 impl ComponentValue for Scale {
@@ -153,7 +167,7 @@ impl ComponentValue for Scale {
 	}
 }
 
-#[derive(Copy, Clone, Default)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct Position(pub f32, pub f32, pub f32);
 
 impl ToPropertyValue for Position {
@@ -170,6 +184,7 @@ impl ComponentValue for Position {
 	}
 }
 
+#[derive(Debug, Clone)]
 pub enum Color {
 	Web(String)
 }
