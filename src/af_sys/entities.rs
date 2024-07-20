@@ -20,6 +20,9 @@ extern "C" {
 	#[wasm_bindgen(method, getter)]
 	pub fn components(this: &AEntity) -> Object;
 
+	#[wasm_bindgen(method, js_name = setAttribute)]
+	pub fn update_component_property(this: &AEntity, component: &str, property: &str, value: &JsValue);
+
 	#[wasm_bindgen(method, js_name = addState)]
 	pub fn add_state(this: &AEntity, name: &str);
 
