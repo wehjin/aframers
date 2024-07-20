@@ -3,6 +3,9 @@ use std::ops::Deref;
 pub trait ComponentValue {
 	fn component_name(&self) -> &str;
 	fn component_value(&self) -> impl AsRef<str>;
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		format!("{}: {}", self.component_name(), self.component_value().as_ref())
+	}
 }
 
 pub trait ToPropertyValue {
