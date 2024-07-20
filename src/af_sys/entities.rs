@@ -34,6 +34,9 @@ extern "C" {
 
 	#[wasm_bindgen(method, js_name = emit)]
 	pub fn emit_event(this: &AEntity, name: &str);
+
+	#[wasm_bindgen(method, js_name = emit)]
+	pub fn emit_event_with_details(this: &AEntity, name: &str, details: &JsValue);
 }
 
 impl From<&str> for AEntity {
