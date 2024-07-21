@@ -7,6 +7,7 @@ use crate::af_sys::entities::AEntity;
 #[wasm_bindgen]
 extern "C" {
 	#[wasm_bindgen(extends = AEntity, extends = HtmlElement, extends = Element, extends = Node)]
+	#[derive(Clone)]
 	pub type AScene;
 
 	#[wasm_bindgen(method, getter)]
