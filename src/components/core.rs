@@ -9,6 +9,21 @@ pub trait ComponentAttribute {
 	fn as_attribute_str(&self) -> impl AsRef<str>;
 }
 
+/// Allows struct with the trait to be combined with others
+/// to form a multi-property component's attribute.
+pub trait ComponentSetting {
+	/// The name of the setting.
+	fn as_setting_name(&self) -> impl AsRef<str>;
+
+	/// The value of the setting as a str.
+	fn as_setting_str(&self) -> impl AsRef<str>;
+
+	/// The name and value of the setting in one string.
+	fn as_setting_declaration(&self) -> String {
+		format!("{}: {}", self.as_setting_name().as_ref(), self.as_setting_str().as_ref())
+	}
+}
+
 
 #[deprecated(note = "use ComponentAttribute instead")]
 pub trait ComponentValue {

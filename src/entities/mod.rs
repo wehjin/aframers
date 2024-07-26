@@ -1,7 +1,7 @@
 use web_sys::wasm_bindgen::JsValue;
 
 use crate::af_sys::entities::{a_entity_create, AEntity};
-use crate::components::core::{ComponentAttribute, ComponentValue};
+use crate::components::core::ComponentAttribute;
 
 pub fn create_entity() -> Result<Entity, JsValue> {
 	let a_entity = a_entity_create("a-entity")?;
@@ -65,12 +65,6 @@ impl Entity {
 	pub fn id(&self) -> String { self.0.id() }
 	pub fn set_id(self, value: impl AsRef<str>) -> Result<Self, JsValue> {
 		self.0.set_id(value.as_ref());
-		Ok(self)
-	}
-
-	#[deprecated(note = "use set_component_attribute instead")]
-	pub fn set_component(self, component: impl ComponentValue) -> Result<Self, JsValue> {
-		self.0.set_attribute(component.component_name(), component.component_value().as_ref())?;
 		Ok(self)
 	}
 	pub fn set_component_attribute(self, attr: impl ComponentAttribute) -> Result<Self, JsValue> {
