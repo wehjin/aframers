@@ -37,7 +37,15 @@ impl ComponentSetting for RadiusTop {
 		format!("{}", self.0)
 	}
 }
+impl ComponentAttribute for RadiusTop {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
 
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
+	}
+}
 #[derive(Debug, Copy, Clone, Default)]
 pub struct RadiusBottom(pub f32);
 
@@ -47,7 +55,15 @@ impl ComponentSetting for RadiusBottom {
 		format!("{}", self.0)
 	}
 }
+impl ComponentAttribute for RadiusBottom {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
 
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
+	}
+}
 #[derive(Debug, Copy, Clone, Default)]
 pub struct SegmentsRadial(pub u32);
 
@@ -55,6 +71,15 @@ impl ComponentSetting for SegmentsRadial {
 	fn as_setting_name(&self) -> impl AsRef<str> { "segments-radial" }
 	fn as_setting_str(&self) -> impl AsRef<str> {
 		format!("{}", self.0)
+	}
+}
+impl ComponentAttribute for SegmentsRadial {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
+
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
 	}
 }
 
@@ -67,6 +92,15 @@ impl ComponentSetting for SegmentsHeight {
 		format!("{}", self.0)
 	}
 }
+impl ComponentAttribute for SegmentsHeight {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
+
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
+	}
+}
 
 #[derive(Debug, Copy, Clone, Default)]
 pub struct ThetaLength(pub f32);
@@ -75,6 +109,15 @@ impl ComponentSetting for ThetaLength {
 	fn as_setting_name(&self) -> impl AsRef<str> { "theta-length" }
 	fn as_setting_str(&self) -> impl AsRef<str> {
 		format!("{}", self.0)
+	}
+}
+impl ComponentAttribute for ThetaLength {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
+
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
 	}
 }
 
@@ -87,6 +130,15 @@ impl ComponentSetting for ThetaStart {
 		format!("{}", self.0)
 	}
 }
+impl ComponentAttribute for ThetaStart {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
+
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
+	}
+}
 
 #[derive(Debug, Copy, Clone, Default)]
 pub struct Width(pub f32);
@@ -94,6 +146,15 @@ impl ComponentSetting for Width {
 	fn as_setting_name(&self) -> impl AsRef<str> { "width" }
 	fn as_setting_str(&self) -> impl AsRef<str> {
 		format!("{}", self.0)
+	}
+}
+impl ComponentAttribute for Width {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
+
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
 	}
 }
 
@@ -106,7 +167,15 @@ impl ComponentSetting for Depth {
 		format!("{}", self.0)
 	}
 }
+impl ComponentAttribute for Depth {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
 
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
+	}
+}
 
 #[derive(Debug, Copy, Clone, Default)]
 pub struct Height(pub f32);
@@ -117,7 +186,15 @@ impl ComponentSetting for Height {
 		format!("{}", self.0)
 	}
 }
+impl ComponentAttribute for Height {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
 
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
+	}
+}
 
 #[derive(Debug, Copy, Clone, Default)]
 pub struct Radius(pub f32);
@@ -126,6 +203,15 @@ impl ComponentSetting for Radius {
 	fn as_setting_name(&self) -> impl AsRef<str> { "radius" }
 	fn as_setting_str(&self) -> impl AsRef<str> {
 		format!("{}", self.0)
+	}
+}
+impl ComponentAttribute for Radius {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
+
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
 	}
 }
 
