@@ -1,4 +1,4 @@
-use crate::components::core::{ComponentSetting, ToPropertyValue};
+use crate::components::core::{ComponentAttribute, ComponentSetting, ToPropertyValue};
 
 pub mod core;
 
@@ -178,5 +178,15 @@ impl ComponentSetting for Color {
 			Color::Web(s) => s,
 			Color::WebStr(s) => *s,
 		}
+	}
+}
+
+impl ComponentAttribute for Color {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
+
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
 	}
 }
