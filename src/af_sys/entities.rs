@@ -7,6 +7,7 @@ use web_sys::js_sys::Object;
 use crate::af_sys::components::AComponent;
 use crate::af_sys::scenes::AScene;
 use crate::browser::document;
+use crate::components::core::ComponentAttribute;
 
 #[wasm_bindgen]
 extern "C" {
@@ -46,10 +47,25 @@ impl From<&str> for AEntity {
 }
 
 impl AEntity {
+	pub fn new() -> Self {
+		Self::new_with_tag("a-entity")
+	}
+	pub fn new_with_tag(tag: impl AsRef<str>) -> Self {
+		a_entity_create(tag).unwrap()
+	}
 	pub fn get_component(&self, name: impl AsRef<str>) -> AComponent {
 		let components = self.components();
 		let component = js_sys::Reflect::get(&components, &name.as_ref().into()).expect("get component");
 		component.unchecked_into()
+	}
+	pub fn set_component_attribute(&self, attr: impl ComponentAttribute) -> &Self {
+		let (name, value) = (attr.as_attribute_name(), attr.as_attribute_str());
+		let (name, value) = (name.as_ref(), value.as_ref());
+		assert!(
+			self.set_attribute(name, value).is_ok(),
+			"Failed to set attribute '{name}' to value '{value}' in AEntity '{}'", self.id()
+		);
+		&self
 	}
 }
 pub fn a_entity_create(tag: impl AsRef<str>) -> Result<AEntity, JsValue> {

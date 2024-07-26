@@ -1,5 +1,5 @@
-use wasm_bindgen::closure::Closure;
 use wasm_bindgen::{JsCast, JsValue};
+use wasm_bindgen::closure::Closure;
 use wasm_bindgen::prelude::wasm_bindgen;
 use web_sys::js_sys;
 
