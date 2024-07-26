@@ -138,6 +138,15 @@ impl ComponentSetting for Rotation {
 		format!("{} {} {}", self.0, self.1, self.2)
 	}
 }
+impl ComponentAttribute for Rotation {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
+
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
+	}
+}
 
 #[derive(Debug, Copy, Clone, Default)]
 pub struct Scale(pub f32, pub f32, pub f32);
@@ -146,6 +155,15 @@ impl ComponentSetting for Scale {
 	fn as_setting_name(&self) -> impl AsRef<str> { "scale" }
 	fn as_setting_str(&self) -> impl AsRef<str> {
 		format!("{} {} {}", self.0, self.1, self.2)
+	}
+}
+impl ComponentAttribute for Scale {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
+
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
 	}
 }
 
@@ -164,6 +182,16 @@ impl ComponentSetting for Position {
 		self.to_property_value()
 	}
 }
+impl ComponentAttribute for Position {
+	fn as_attribute_name(&self) -> impl AsRef<str> {
+		self.as_setting_name()
+	}
+
+	fn as_attribute_str(&self) -> impl AsRef<str> {
+		self.as_setting_str()
+	}
+}
+
 
 #[derive(Debug, Clone)]
 pub enum Color {
