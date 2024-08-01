@@ -62,6 +62,7 @@ pub struct Entity(AEntity);
 
 impl Entity {
 	pub fn a_entity(&self) -> &AEntity { &self.0 }
+	pub fn into_a_entity(self) -> AEntity { self.0 }
 	pub fn id(&self) -> String { self.0.id() }
 	pub fn set_id(self, value: impl AsRef<str>) -> Result<Self, JsValue> {
 		self.0.set_id(value.as_ref());
