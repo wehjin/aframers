@@ -215,7 +215,7 @@ impl ComponentAttribute for Radius {
 	}
 }
 
-#[derive(Debug, Copy, Clone, Default)]
+#[derive(Debug, Copy, Clone, Default, PartialEq)]
 pub struct Rotation(pub f32, pub f32, pub f32);
 
 impl ComponentSetting for Rotation {
@@ -234,7 +234,7 @@ impl ComponentAttribute for Rotation {
 	}
 }
 
-#[derive(Debug, Copy, Clone, Default)]
+#[derive(Debug, Copy, Clone, Default, PartialEq)]
 pub struct Scale(pub f32, pub f32, pub f32);
 
 impl ComponentSetting for Scale {
@@ -253,7 +253,7 @@ impl ComponentAttribute for Scale {
 	}
 }
 
-#[derive(Debug, Copy, Clone, Default)]
+#[derive(Debug, Copy, Clone, Default, PartialEq)]
 pub struct Position(pub f32, pub f32, pub f32);
 
 impl ToPropertyValue for Position {
